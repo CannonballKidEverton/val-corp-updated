@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHero }        from '@/components/primitives/PageHero';
 import { SectionHead }     from '@/components/primitives/SectionHead';
-import { ArrivalWrapper }  from '@/components/primitives/ArrivalWrapper';
 import { EngagementBlock } from '@/components/primitives/EngagementBlock';
 import { dossiers }        from '@/content/dossiers';
 
@@ -22,7 +21,7 @@ export default function IntelligenceIndex() {
         variant="division"
       />
 
-      <ArrivalWrapper as="section" className="zone-pad">
+      <section className="zone-pad">
         <SectionHead
           title="Published dossiers"
           counter={`${dossiers.length} of ${dossiers.length} shown`}
@@ -53,7 +52,7 @@ export default function IntelligenceIndex() {
             </Link>
           ))}
         </div>
-      </ArrivalWrapper>
+      </section>
 
       <EngagementBlock />
     </>

@@ -1,18 +1,13 @@
-'use client';
+// Server component — edition mark computed at build time.
+// No useEffect needed; year is stable per deployment.
 
-import { useEffect, useState } from 'react';
-
-function editionMark(): string {
+function buildEdition(): string {
   const d = new Date();
-  return `VLT/${d.getUTCFullYear()}/${String(d.getUTCMonth() + 1).padStart(2, '0')}`;
+  return `VLT/${d.getUTCFullYear()}/${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
 }
 
 export function Footer() {
-  const [edition, setEdition] = useState('VLT/—');
-
-  useEffect(() => {
-    setEdition(editionMark());
-  }, []);
+  const edition = buildEdition();
 
   return (
     <footer className="border-t border-hairline px-[var(--margin)] py-8 flex justify-between items-center flex-wrap gap-8">

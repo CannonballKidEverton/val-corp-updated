@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/primitives/PageHero";
 import { SectionHead } from "@/components/primitives/SectionHead";
 import { MetadataBlock } from "@/components/primitives/MetadataBlock";
-import { ArrivalWrapper } from "@/components/primitives/ArrivalWrapper";
 import { EngagementBlock } from "@/components/primitives/EngagementBlock";
 import { RiskEngineForm } from "@/components/risk/RiskEngineForm";
 import { riskDomains } from "@/content/riskDomains";
@@ -25,8 +24,7 @@ export default function RiskPage() {
       />
 
       {/* ─── ASSESSMENT PHILOSOPHY ─────────────────────────────────────── */}
-      <ArrivalWrapper
-        as="section"
+      <section
         className="zone-pad grid grid-cols-1 md:grid-cols-[minmax(0,7fr)_minmax(0,3fr)] gap-x-[clamp(48px,8vw,120px)] gap-y-12 items-start"
       >
         <article className="t-lead text-ink max-w-prose">
@@ -69,10 +67,10 @@ export default function RiskPage() {
             ]}
           />
         </aside>
-      </ArrivalWrapper>
+      </section>
 
       {/* ─── INTAKE METHODOLOGY ────────────────────────────────────────── */}
-      <ArrivalWrapper as="section" className="zone-pad border-t border-hairline">
+      <section className="zone-pad border-t border-hairline">
         <SectionHead title="Intake methodology" counter="Three stages" />
         <div className="grid grid-cols-1 md:grid-cols-3 border-t border-hairline">
           {[
@@ -112,10 +110,10 @@ export default function RiskPage() {
             </div>
           ))}
         </div>
-      </ArrivalWrapper>
+      </section>
 
       {/* ─── OUTPUT STRUCTURE ──────────────────────────────────────────── */}
-      <ArrivalWrapper as="section" className="zone-pad border-t border-hairline">
+      <section className="zone-pad border-t border-hairline">
         <div className="grid grid-cols-1 md:grid-cols-[minmax(0,7fr)_minmax(0,3fr)] gap-x-[clamp(48px,8vw,120px)] gap-y-12 items-start">
           <div>
             <SectionHead title="Output structure" />
@@ -155,10 +153,10 @@ export default function RiskPage() {
             />
           </aside>
         </div>
-      </ArrivalWrapper>
+      </section>
 
       {/* ─── INVESTOR & PORTFOLIO USE ──────────────────────────────────── */}
-      <ArrivalWrapper as="section" className="zone-pad border-t border-hairline">
+      <section className="zone-pad border-t border-hairline">
         <SectionHead title="Investor and portfolio use" />
         <div className="grid grid-cols-1 md:grid-cols-3 border-t border-hairline">
           {[
@@ -192,10 +190,10 @@ export default function RiskPage() {
             </div>
           ))}
         </div>
-      </ArrivalWrapper>
+      </section>
 
       {/* ─── MITIGATION ROUTING ────────────────────────────────────────── */}
-      <ArrivalWrapper as="section" className="zone-pad border-t border-hairline">
+      <section className="zone-pad border-t border-hairline">
         <SectionHead title="Mitigation routing" counter="Domain to practice" />
         <div className="t-lead text-ink max-w-prose mb-10">
           <p>
@@ -228,10 +226,10 @@ export default function RiskPage() {
             </div>
           ))}
         </div>
-      </ArrivalWrapper>
+      </section>
 
       {/* ─── THE TWELVE DOMAINS TABLE ──────────────────────────────────── */}
-      <ArrivalWrapper as="section" className="py-[10vh]">
+      <section className="py-[10vh]">
         <div style={{ marginLeft: "var(--col-3)", marginRight: "var(--margin)" }}>
           <SectionHead title="The twelve domains" counter="Continuous scoring" />
         </div>
@@ -282,10 +280,10 @@ export default function RiskPage() {
           <span>\u00b7</span>
           <span>Calibration reviewed quarterly</span>
         </div>
-      </ArrivalWrapper>
+      </section>
 
       {/* ─── PRACTICE NOTES ────────────────────────────────────────────── */}
-      <ArrivalWrapper as="section" className="zone-pad border-t border-hairline">
+      <section className="zone-pad border-t border-hairline">
         <div className="grid grid-cols-1 md:grid-cols-[minmax(0,7fr)_minmax(0,3fr)] gap-x-[clamp(48px,8vw,120px)] gap-y-10 items-start">
           <div>
             <SectionHead title="Practice notes" />
@@ -330,7 +328,7 @@ export default function RiskPage() {
             </div>
           </aside>
         </div>
-      </ArrivalWrapper>
+      </section>
 
       {/* ─── INTERACTIVE DIAGNOSTIC ────────────────────────────────────── */}
       <RiskEngineForm />

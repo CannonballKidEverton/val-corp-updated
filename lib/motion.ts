@@ -23,8 +23,8 @@ export const EASE_REACTIVE = [0.4, 0, 0.2, 1] as const;
    DURATIONS
    ============================================================ */
 export const DUR = {
-  ARRIVAL:  0.76,
-  MODERATE: 0.38,
+  ARRIVAL:  0.5,   // was 0.76 — snappier section reveals
+  MODERATE: 0.3,
   REACTIVE: 0.14,
   SLOW:     0.22,
 } as const;

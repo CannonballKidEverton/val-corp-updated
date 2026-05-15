@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { PageHero }        from '@/components/primitives/PageHero';
 import { MetadataBlock }   from '@/components/primitives/MetadataBlock';
-import { ArrivalWrapper }  from '@/components/primitives/ArrivalWrapper';
 import { EngagementBlock } from '@/components/primitives/EngagementBlock';
 import { operators, getOperatorBySlug } from '@/content/operators';
 
@@ -37,8 +36,7 @@ export default function OperatorPage({ params }: { params: { slug: string } }) {
         variant="profile"
       />
 
-      <ArrivalWrapper
-        as="section"
+      <section
         className="zone-pad grid grid-cols-1 md:grid-cols-[minmax(0,7fr)_minmax(0,3fr)] gap-x-[clamp(48px,8vw,120px)] gap-y-12 items-start"
       >
         <article className="t-lead text-ink max-w-prose">
@@ -56,7 +54,7 @@ export default function OperatorPage({ params }: { params: { slug: string } }) {
           />
           <MetadataBlock items={meta} />
         </aside>
-      </ArrivalWrapper>
+      </section>
 
       <EngagementBlock />
     </>

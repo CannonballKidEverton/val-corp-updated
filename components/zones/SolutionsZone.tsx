@@ -1,15 +1,15 @@
-"use client";
+// Server component — no 'use client' needed.
+// CSS group-hover replaces Framer Motion whileHover, removing the client bundle entirely.
 
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrivalWrapper } from '@/components/primitives/ArrivalWrapper';
-import { SectionHead } from '@/components/primitives/SectionHead';
-import { VMarkIcon } from '@/components/solutions/VMarks';
-import { solutions, TOTAL_SOLUTIONS } from '@/content/solutions';
-import { vMarkHover, arrowHover } from '@/lib/motion';
+import { ArrivalWrapper } from "@/components/primitives/ArrivalWrapper";
+import { SectionHead } from "@/components/primitives/SectionHead";
+import { VMarkIcon } from "@/components/solutions/VMarks";
+import { solutions, TOTAL_SOLUTIONS } from "@/content/solutions";
+
+const HOMEPAGE_SOLUTIONS = 6;
 
 export function SolutionsZone() {
-  const HOMEPAGE_SOLUTIONS = 6;
   const visible = solutions.slice(0, HOMEPAGE_SOLUTIONS);
 
   return (
@@ -24,45 +24,32 @@ export function SolutionsZone() {
           const destination = sol.href ?? `/solutions/${sol.slug}`;
 
           return (
-            <motion.div
+            <Link
               key={sol.slug}
-              initial="rest"
-              whileHover="hover"
-              animate="rest"
-              className="relative grid items-center gap-x-[clamp(24px,4vw,56px)] grid-cols-[64px_minmax(0,3fr)_minmax(0,7fr)_32px] py-7 border-b border-hairline first:border-t"
+              href={destination}
+              className="group relative grid items-center gap-x-[clamp(24px,4vw,56px)] grid-cols-[64px_minmax(0,3fr)_minmax(0,7fr)_32px] py-7 border-b border-hairline first:border-t no-underline text-inherit"
             >
-              {/* V mark */}
-              <motion.span
-                className="text-ink"
-                variants={vMarkHover}
+              {/* V mark — CSS rotate on hover */}
+              <span
+                className="text-ink block transition-transform duration-[220ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[8deg]"
                 style={{ transformOrigin: "50% 60%" }}
               >
                 <VMarkIcon variant={sol.vMark} />
-              </motion.span>
+              </span>
 
               {/* Name */}
               <span className="t-solution text-ink">{sol.name}</span>
 
               {/* Description */}
-              <span className="font-serif text-[clamp(0.95rem,1.05vw,1.05rem)] leading-relaxed text-ink-3 hidden md:block">
+              <span className="font-serif text-[clamp(0.95rem,1.05vw,1.05rem)] leading-relaxed text-ink-3 hidden md:block transition-colors duration-moderate group-hover:text-ink-2">
                 {sol.description}
               </span>
 
-              {/* Arrow */}
-              <motion.span
-                className="font-mono text-[14px] text-ink-4 text-right"
-                variants={arrowHover}
-              >
+              {/* Arrow — CSS translate on hover */}
+              <span className="font-mono text-[14px] text-ink-4 text-right transition-all duration-[220ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1.5 group-hover:text-ink">
                 →
-              </motion.span>
-
-              {/* Full-row overlay link */}
-              <Link
-                href={destination}
-                className="absolute inset-0 z-10"
-                aria-label={`View ${sol.name} solution`}
-              />
-            </motion.div>
+              </span>
+            </Link>
           );
         })}
       </div>

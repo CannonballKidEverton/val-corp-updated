@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { PageHero } from "@/components/primitives/PageHero";
-import { ArrivalWrapper } from "@/components/primitives/ArrivalWrapper";
 import { SectionHead } from "@/components/primitives/SectionHead";
 import { MetadataBlock } from "@/components/primitives/MetadataBlock";
 import { EngagementBlock } from "@/components/primitives/EngagementBlock";
@@ -49,8 +48,7 @@ export default function SolutionPage({
       />
 
       {/* Positioning statement + metadata rail */}
-      <ArrivalWrapper
-        as="section"
+      <section
         className="zone-pad grid grid-cols-1 md:grid-cols-[minmax(0,7fr)_minmax(0,3fr)] gap-x-[clamp(48px,8vw,120px)] gap-y-12 items-start"
       >
         <div>
@@ -85,13 +83,12 @@ export default function SolutionPage({
           </span>
           <MetadataBlock items={sol.metadata} />
         </aside>
-      </ArrivalWrapper>
+      </section>
 
       {/* Remaining body sections */}
       {sol.sections.slice(1).map((section) => (
-        <ArrivalWrapper
+        <section
           key={section.heading}
-          as="section"
           className="px-[var(--margin)] pb-[8vh] grid grid-cols-1 md:grid-cols-[minmax(0,7fr)_minmax(0,3fr)] gap-x-[clamp(48px,8vw,120px)]"
         >
           <div>
@@ -106,11 +103,11 @@ export default function SolutionPage({
               ))}
             </div>
           </div>
-        </ArrivalWrapper>
+        </section>
       ))}
 
       {/* Related solutions — 3 others */}
-      <ArrivalWrapper as="section" className="zone-pad border-t border-hairline">
+      <section className="zone-pad border-t border-hairline">
         <SectionHead title="Related solutions" />
         <div className="flex flex-col">
           {solutions
@@ -137,7 +134,7 @@ export default function SolutionPage({
               </Link>
             ))}
         </div>
-      </ArrivalWrapper>
+      </section>
 
       <EngagementBlock />
     </>

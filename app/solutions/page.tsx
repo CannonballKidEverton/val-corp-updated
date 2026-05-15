@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHero }        from '@/components/primitives/PageHero';
 import { SectionHead }     from '@/components/primitives/SectionHead';
-import { ArrivalWrapper }  from '@/components/primitives/ArrivalWrapper';
 import { EngagementBlock } from '@/components/primitives/EngagementBlock';
 import { VMarkIcon }       from '@/components/solutions/VMarks';
 import { solutions, TOTAL_SOLUTIONS } from '@/content/solutions';
@@ -23,7 +22,7 @@ export default function SolutionsPage() {
         variant="division"
       />
 
-      <ArrivalWrapper as="section" className="zone-pad">
+      <section className="zone-pad">
         <SectionHead title="Operating solutions" counter={`${solutions.length} of ${TOTAL_SOLUTIONS}`} />
 
         <div className="flex flex-col gap-16">
@@ -52,7 +51,7 @@ export default function SolutionsPage() {
             </div>
           ))}
         </div>
-      </ArrivalWrapper>
+      </section>
 
       <EngagementBlock />
     </>

@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { PageHero }        from '@/components/primitives/PageHero';
 import { MetadataBlock }   from '@/components/primitives/MetadataBlock';
-import { ArrivalWrapper }  from '@/components/primitives/ArrivalWrapper';
 import { EngagementBlock } from '@/components/primitives/EngagementBlock';
 import { dossiers, getDossierBySlug, getAllDossierSlugs } from '@/content/dossiers';
 
@@ -31,8 +30,7 @@ export default function DossierPage({ params }: { params: { slug: string } }) {
       />
 
       {/* Abstract + dossier meta */}
-      <ArrivalWrapper
-        as="section"
+      <section
         className="zone-pad border-b border-hairline-2 grid grid-cols-1 md:grid-cols-[minmax(0,7fr)_minmax(0,3fr)] gap-x-[clamp(48px,8vw,120px)] gap-y-12 items-start"
       >
         <p className="font-sans font-medium text-[clamp(1.3rem,1.9vw,1.8rem)] leading-[1.25] tracking-[-0.015em] text-ink">
@@ -47,13 +45,12 @@ export default function DossierPage({ params }: { params: { slug: string } }) {
             { label: 'Authored by',    value: d.meta.authoredBy   },
           ]} />
         </aside>
-      </ArrivalWrapper>
+      </section>
 
       {/* Sections */}
       {d.sections.map((section) => (
-        <ArrivalWrapper
+        <section
           key={section.ref}
-          as="section"
           className="zone-pad grid grid-cols-1 md:grid-cols-[minmax(0,7fr)_minmax(0,3fr)] gap-x-[clamp(48px,8vw,120px)] items-start"
         >
           <div className="md:col-start-1">
@@ -74,11 +71,11 @@ export default function DossierPage({ params }: { params: { slug: string } }) {
               </p>
             )}
           </div>
-        </ArrivalWrapper>
+        </section>
       ))}
 
       {/* References */}
-      <ArrivalWrapper as="section" className="zone-pad border-t border-hairline-2">
+      <section className="zone-pad border-t border-hairline-2">
         <span className="t-label text-ink-4 block mb-3.5">§ REF</span>
         <h2 className="font-sans font-medium text-[clamp(1.3rem,1.8vw,1.6rem)] tracking-[-0.015em] text-ink mb-7">
           Standing references
@@ -90,7 +87,7 @@ export default function DossierPage({ params }: { params: { slug: string } }) {
             </li>
           ))}
         </ul>
-      </ArrivalWrapper>
+      </section>
 
       <EngagementBlock />
     </>
